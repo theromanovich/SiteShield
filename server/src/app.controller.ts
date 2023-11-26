@@ -1,6 +1,9 @@
 import { Controller, Get } from '@nestjs/common';
 import { ApiOkResponse, ApiProperty } from '@nestjs/swagger';
 import { AppService } from './app.service';
+import { PrismaClient } from '@prisma/client'
+
+const prisma = new PrismaClient()
 
 class HelloWorldDto {
   @ApiProperty()
@@ -15,7 +18,9 @@ export class AppController {
   @ApiOkResponse({
     type: HelloWorldDto
   })
-  getHello(): HelloWorldDto {
+  async getHello(): Promise<HelloWorldDto> {
+    const users = await prisma.user.findMany({})
+    console.log(users)
     return { message: this.appService.getHello() }
   }
 }
