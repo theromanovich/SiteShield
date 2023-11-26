@@ -6,10 +6,10 @@ export class UsersService {
   constructor(private db: DbService) {}
 
   findByEmail(email: string) {
-    this.db.user.findFirst({ where: { email } })
+    this.db.user.findFirst({ where: { email } });
   }
 
   create(email: string, hash: string, salt: string) {
-    return this.db.user.create({ data: { email, hash, salt } })
+    return this.db.user.create({ data: { email, hash, salt } });
   }
 }
