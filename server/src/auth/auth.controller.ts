@@ -1,4 +1,11 @@
-import { Body, Controller, Get, HttpCode, HttpStatus, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  HttpCode,
+  HttpStatus,
+  Post,
+} from '@nestjs/common';
 import { ApiCreatedResponse, ApiOkResponse } from '@nestjs/swagger';
 import { GetSessionInfoDto, SignInBodyDto, SignUpBodyDto } from './dto';
 
@@ -19,7 +26,7 @@ export class AuthController {
 
   @Get('session')
   @ApiOkResponse({
-    type: GetSessionInfoDto
+    type: GetSessionInfoDto,
   })
   getSessionInfo() {}
 }
