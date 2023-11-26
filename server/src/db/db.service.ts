@@ -3,7 +3,7 @@ import { PrismaClient } from '@prisma/client';
 
 @Injectable()
 export class DbService extends PrismaClient implements OnModuleInit {
-    async onModuleInit() {
-        this.$connect();
-    }
+  async onModuleInit() {
+    this.$connect();
+  }
 }

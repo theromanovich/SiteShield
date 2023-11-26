@@ -5,20 +5,23 @@ import { DbService } from './db/db.service';
 
 class HelloWorldDto {
   @ApiProperty()
-  message: string
+  message: string;
 }
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService, private dbService: DbService) {}
+  constructor(
+    private readonly appService: AppService,
+    private dbService: DbService,
+  ) {}
 
   @Get()
   @ApiOkResponse({
-    type: HelloWorldDto
+    type: HelloWorldDto,
   })
   async getHello(): Promise<HelloWorldDto> {
-    const users = await this.dbService.user.findMany({})
-    console.log(users)
-    return { message: this.appService.getHello() }
+    const users = await this.dbService.user.findMany({});
+    console.log(users);
+    return { message: this.appService.getHello() };
   }
 }
