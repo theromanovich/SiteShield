@@ -6,6 +6,15 @@ import { PatchAccountDto } from './dto';
 export class AccountService {
   constructor(private db: DbService) {}
 
+  async create(userId: number) {
+    return this.db.account.create({
+      data: {
+        ownerId: userId,
+        isBlockingEnabled: false,
+      },
+    });
+  }
+
   async getAccount(userId: number) {
     return this.db.account.findUniqueOrThrow({ where: { ownerId: userId } });
   }
