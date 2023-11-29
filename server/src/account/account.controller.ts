@@ -1,4 +1,10 @@
-import { Controller } from '@nestjs/common';
+import { Controller, Get, Patch } from '@nestjs/common';
 
 @Controller('account')
-export class AccountController {}
+export class AccountController {
+  @Get()
+  getAccount() {}
+
+  @Patch()
+  patchAccount() {}
+}
