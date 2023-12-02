@@ -4,6 +4,6 @@ import { BlockListService } from './block-list.service';
 
 @Module({
   controllers: [BlockListController],
-  providers: [BlockListService]
+  providers: [BlockListService],
 })
 export class BlockListModule {}
