@@ -13,6 +13,7 @@ import { ApiCreatedResponse, ApiOkResponse } from '@nestjs/swagger';
 import { AuthGuard } from 'src/auth/auth.guard';
 import { GetSessionInfoDto } from 'src/auth/dto';
 import { SessionInfo } from 'src/auth/session-info.decorator';
+import { BlockListService } from './block-list.service';
 import {
   AddBlockItemDto,
   BlockItemDto,
@@ -23,6 +24,8 @@ import {
 @Controller('block-list')
 @UseGuards(AuthGuard)
 export class BlockListController {
+  constructor(private blockListService: BlockListService) {}
+
   @Get()
   @ApiOkResponse({
     type: BlockListDto,
@@ -30,7 +33,9 @@ export class BlockListController {
   getLst(
     @Query() query: BlockListQueryDto,
     @SessionInfo() session: GetSessionInfoDto,
-  ) {}
+  ): Promise<BlockListDto> {
+    return this.blockListService.getByUserId(session.id, query);
+  }
 
   @Post('item')
   @ApiCreatedResponse({
@@ -39,12 +44,18 @@ export class BlockListController {
   addBlockList(
     @Body() body: AddBlockItemDto,
     @SessionInfo() session: GetSessionInfoDto,
-  ) {}
+  ): Promise<BlockItemDto> {
+    return this.blockListService.addItem(session.id, body);
+  }
 
   @Delete('item/:id')
-  @ApiOkResponse()
-  removeBlockItem(
+  @ApiOkResponse({
+    type: BlockItemDto,
+  })
+  async removeBlockItem(
     @Param(ParseIntPipe) id: number,
     @SessionInfo() session: GetSessionInfoDto,
-  ) {}
+  ): Promise<BlockItemDto> {
+    return await this.blockListService.removeItem(session.id, id);
+  }
 }
