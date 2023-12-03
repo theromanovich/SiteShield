@@ -1,4 +1,4 @@
-import { createTheme } from "@mui/material";
+import { createTheme } from '@mui/material';
 
 export const theme = createTheme({
   typography: {
@@ -6,7 +6,7 @@ export const theme = createTheme({
   },
   palette: {
     background: {
-      default: "#F7F7F7",
+      default: '#F7F7F7',
     },
   },
   breakpoints: {
@@ -21,7 +21,7 @@ export const theme = createTheme({
   components: {
     MuiContainer: {
       defaultProps: {
-        maxWidth: "lg",
+        maxWidth: 'lg',
       },
     },
   },
