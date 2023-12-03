@@ -6,7 +6,7 @@ export const theme = createTheme({
   },
   palette: {
     background: {
-      default: 'red',
+      default: '#F7F7F7',
     },
   },
   breakpoints: {
