@@ -9,7 +9,12 @@ import ReactDOM from 'react-dom/client';
 
 const routeTree = RootLayout.addChildren([HomePageRoute, SignUpPageRoute, SignInPageRoute]);
 
-const router = createRouter({ routeTree });
+const router = createRouter({
+  routeTree,
+  context: {
+    auth: undefined,
+  },
+});
 
 declare module '@tanstack/react-router' {
   interface Register {
