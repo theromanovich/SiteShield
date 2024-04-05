@@ -12,7 +12,6 @@ function Layout() {
         </Link>
       </div>
       <Outlet />
-      <hr />
     </div>
   );
 }
