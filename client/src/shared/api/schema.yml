@@ -84,7 +84,7 @@ paths:
                 $ref: '#/components/schemas/AccoutDto'
   /block-list:
     get:
-      operationId: BlockListController_getLst
+      operationId: BlockListController_getList
       parameters:
         - name: q
           required: false

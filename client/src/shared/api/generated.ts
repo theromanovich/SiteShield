@@ -7,7 +7,7 @@
 import { createInstance } from './api-instance';
 import type { BodyType } from './api-instance';
 
-export type BlockListControllerGetLstParams = {
+export type BlockListControllerGetListParams = {
   q?: string;
 };
 
@@ -146,8 +146,8 @@ export const accountControllerPatchAccount = (
   );
 };
 
-export const blockListControllerGetLst = (
-  params?: BlockListControllerGetLstParams,
+export const blockListControllerGetList = (
+  params?: BlockListControllerGetListParams,
   options?: SecondParameter<typeof createInstance>,
 ) => {
   return createInstance<BlockListDto>({ url: `/block-list`, method: 'GET', params }, options);
@@ -196,8 +196,8 @@ export type AccountControllerGetAccountResult = NonNullable<
 export type AccountControllerPatchAccountResult = NonNullable<
   Awaited<ReturnType<typeof accountControllerPatchAccount>>
 >;
-export type BlockListControllerGetLstResult = NonNullable<
-  Awaited<ReturnType<typeof blockListControllerGetLst>>
+export type BlockListControllerGetListResult = NonNullable<
+  Awaited<ReturnType<typeof blockListControllerGetList>>
 >;
 export type BlockListControllerAddBlockListResult = NonNullable<
   Awaited<ReturnType<typeof blockListControllerAddBlockList>>
