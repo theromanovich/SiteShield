@@ -10,6 +10,7 @@ export function protectedPage<P>(Component: (props: P) => ReactElement) {
       queryKey: ['session'],
       queryFn: () => authControllerGetSessionInfo(),
       retry: 1,
+      staleTime: 5 * 60 * 1000
     });
 
     if (isLoading) {
