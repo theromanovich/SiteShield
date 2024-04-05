@@ -1,15 +1,12 @@
-import { RootLayout } from "@/app/layout"
-import { createRoute } from "@tanstack/react-router"
+import { RootLayout } from '@/app/layout';
+import { createRoute } from '@tanstack/react-router';
 
 export function HomePage() {
-    return ( 
-        <div></div>
-    )
+  return <div></div>;
 }
 
-
 export const HomePageRoute = createRoute({
-    getParentRoute: () => RootLayout,
-    path: '/',
-    component: HomePage
-  })
+  getParentRoute: () => RootLayout,
+  path: '/',
+  component: HomePage,
+});

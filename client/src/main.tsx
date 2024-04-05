@@ -1,31 +1,27 @@
-import ReactDOM from 'react-dom/client'
-import {
-  RouterProvider,
-  createRouter,
-} from '@tanstack/react-router'
-import { Providers } from '@/app/providers'
+import { RootLayout } from '@/app/layout';
+import { Providers } from '@/app/providers';
+import { HomePageRoute } from '@/pages/home';
+import { SignUpPageRoute } from '@/pages/sign-up';
+import '@/styles/globals.css';
+import { RouterProvider, createRouter } from '@tanstack/react-router';
+import ReactDOM from 'react-dom/client';
 
-import '@/styles/globals.css'
-import { RootLayout } from '@/app/layout'
-import { HomePageRoute } from '@/pages/home'
-import { SignUpPageRoute } from '@/pages/sign-up'
+const routeTree = RootLayout.addChildren([HomePageRoute, SignUpPageRoute]);
 
-const routeTree = RootLayout.addChildren([HomePageRoute, SignUpPageRoute])
-
-const router = createRouter({ routeTree })
+const router = createRouter({ routeTree });
 
 declare module '@tanstack/react-router' {
   interface Register {
-    router: typeof router
+    router: typeof router;
   }
 }
 
-const rootElement = document.getElementById('app')!
+const rootElement = document.getElementById('app')!;
 if (!rootElement.innerHTML) {
-  const root = ReactDOM.createRoot(rootElement)
+  const root = ReactDOM.createRoot(rootElement);
   root.render(
     <Providers>
       <RouterProvider router={router} />
     </Providers>,
-  )
+  );
 }
