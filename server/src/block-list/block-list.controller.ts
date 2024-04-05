@@ -30,7 +30,7 @@ export class BlockListController {
   @ApiOkResponse({
     type: BlockListDto,
   })
-  getLst(
+  getList(
     @Query() query: BlockListQueryDto,
     @SessionInfo() session: GetSessionInfoDto,
   ): Promise<BlockListDto> {
