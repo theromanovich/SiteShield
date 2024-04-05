@@ -7,6 +7,8 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from 'zod';
 import { useMutation } from '@tanstack/react-query';
 import { SignUpBodyDto, authControllerSignUp } from '@/shared/api/generated';
+import { useNavigate } from '@tanstack/react-router';
+import { ROUTES } from '@/shared/constants/routes';
 
 const signUpformSchema = z.object({
     email: z.string().email(),
@@ -14,13 +16,19 @@ const signUpformSchema = z.object({
   })
 
 export function SignUpForm() {
+  const navigate = useNavigate()
+
+
   const form = useForm<SignUpBodyDto>({
     resolver: zodResolver(signUpformSchema),
   });
 
 
  const signUpMutation = useMutation({
-    mutationFn: authControllerSignUp
+    mutationFn: authControllerSignUp,
+    onSuccess: () => {
+      navigate({ to: ROUTES.Home })
+    }
   })
 
   return (
