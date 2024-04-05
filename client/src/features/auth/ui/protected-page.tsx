@@ -1,17 +1,12 @@
-import { authControllerGetSessionInfo } from '@/shared/api/generated';
-import { useQuery } from '@tanstack/react-query';
+import { useSessionQuery } from '@/entities/session/queries';
 import { useNavigate } from '@tanstack/react-router';
 import { PropsWithChildren, ReactElement } from 'react';
 
 export function protectedPage<P>(Component: (props: P) => ReactElement) {
   return function ProtectedPage(props: PropsWithChildren<P>) {
     const navigate = useNavigate();
-    const { isLoading, isError } = useQuery({
-      queryKey: ['session'],
-      queryFn: () => authControllerGetSessionInfo(),
-      retry: 1,
-      staleTime: 5 * 60 * 1000
-    });
+
+    const { isLoading, isError } = useSessionQuery();
 
     if (isLoading) {
       return <div>Loading...</div>;
