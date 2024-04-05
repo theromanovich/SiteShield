@@ -1,13 +1,8 @@
-import { theme } from '@/theme';
-import { Box, styled } from '@mui/material';
+import { Button } from "@/shared/ui/button";
 
-const StyledDiv = styled(Box)({
-  color: 'red',
-  [theme.breakpoints.down('md')]: {
-    color: 'blue',
-  },
-});
+import '@/styles/globals.css';
 
 export function App() {
-  return <StyledDiv>Hellasdaso!</StyledDiv>;
+
+  return <Button>Hello!</Button>;
 }
