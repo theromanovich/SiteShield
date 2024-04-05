@@ -1,39 +1,14 @@
+import { useSingUpFrom } from '@/features/auth/model/use-signup-form';
 import { Button } from '@/shared/ui/button';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/shared/ui/form';
 import { Input } from '@/shared/ui/input';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from "@hookform/resolvers/zod"
-
-import { z } from 'zod';
-import { useMutation } from '@tanstack/react-query';
-import { SignUpBodyDto, authControllerSignUp } from '@/shared/api/generated';
-import { useNavigate } from '@tanstack/react-router';
-import { ROUTES } from '@/shared/constants/routes';
-
-const signUpformSchema = z.object({
-    email: z.string().email(),
-    password: z.string().min(8, { message: 'Password must be at least 8 characters' }),
-  })
 
 export function SignUpForm() {
-  const navigate = useNavigate()
-
-
-  const form = useForm<SignUpBodyDto>({
-    resolver: zodResolver(signUpformSchema),
-  });
-
-
- const signUpMutation = useMutation({
-    mutationFn: authControllerSignUp,
-    onSuccess: () => {
-      navigate({ to: ROUTES.Home })
-    }
-  })
+  const { form, functions, state } = useSingUpFrom();
 
   return (
     <div className="lg:p-8">
-      <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
+      <div className="mx-auto flex w-full flex-col justify-center space-y-3 sm:w-[350px]">
         <div className="flex flex-col space-y-2 text-center">
           <h1 className="text-2xl font-semibold tracking-tight">Create an account</h1>
           <p className="text-sm text-muted-foreground">
@@ -42,12 +17,12 @@ export function SignUpForm() {
         </div>
         <div>
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(data => signUpMutation.mutate(data))}>
-              <div className="grid gap-2">
+            <form onSubmit={functions.handleSubmit}>
+              <div className="grid gap-3">
                 <FormField
                   control={form.control}
                   name="email"
-                  render={({field}) => (
+                  render={({ field }) => (
                     <FormItem className="grid gap-1">
                       <FormLabel className="sr-only">Email</FormLabel>
                       <FormControl>
@@ -67,27 +42,35 @@ export function SignUpForm() {
                 <FormField
                   control={form.control}
                   name="password"
-                  render={({field}) => (
+                  render={({ field }) => (
                     <FormItem className="grid gap-1">
                       <FormLabel className="sr-only">Email</FormLabel>
                       <FormControl>
-                        <Input
-                          id="password"
-                          placeholder="password"
-                          type="password"
-                          {...field}
-                        />
+                        <Input id="password" placeholder="password" type="password" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
-        
                 />
-                <Button type='submit'>Sign In with Email</Button>
+
+                <Button className="mt-1" type="submit">
+                  Sign Up
+                </Button>
               </div>
             </form>
           </Form>
+          <div className="relative mt-2">
+            <div className="absolute inset-0 flex items-center">
+              <span className="w-full border-t" />
+            </div>
+            <div className="relative flex justify-center text-xs uppercase">
+              <span className="bg-background px-2 text-muted-foreground">
+                Alredy have an account?
+              </span>
+            </div>
+          </div>
         </div>
+        <div  className='text-rose-500 text-center'>{state.isError ? state.isError : null}</div>
       </div>
     </div>
   );
