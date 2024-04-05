@@ -1,12 +1,13 @@
 import { RootLayout } from '@/app/layout';
 import { Providers } from '@/app/providers';
 import { HomePageRoute } from '@/pages/home';
+import { SignInPageRoute } from '@/pages/sign-in';
 import { SignUpPageRoute } from '@/pages/sign-up';
 import '@/styles/globals.css';
 import { RouterProvider, createRouter } from '@tanstack/react-router';
 import ReactDOM from 'react-dom/client';
 
-const routeTree = RootLayout.addChildren([HomePageRoute, SignUpPageRoute]);
+const routeTree = RootLayout.addChildren([HomePageRoute, SignUpPageRoute, SignInPageRoute]);
 
 const router = createRouter({ routeTree });
 

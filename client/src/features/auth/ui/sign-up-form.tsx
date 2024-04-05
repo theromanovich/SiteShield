@@ -1,10 +1,12 @@
-import { useSingUpFrom } from '@/features/auth/model/use-signup-form';
+import { useSignUpForm } from '@/features/auth/model/use-sign-up-form';
+import { ROUTES } from '@/shared/constants/routes';
 import { Button } from '@/shared/ui/button';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/shared/ui/form';
 import { Input } from '@/shared/ui/input';
+import { Link } from '@tanstack/react-router';
 
 export function SignUpForm() {
-  const { form, functions, state } = useSingUpFrom();
+  const { form, functions, state } = useSignUpForm();
 
   return (
     <div className="lg:p-8">
@@ -59,7 +61,7 @@ export function SignUpForm() {
               </div>
             </form>
           </Form>
-          <div className="relative mt-2">
+          <div className="relative mt-4">
             <div className="absolute inset-0 flex items-center">
               <span className="w-full border-t" />
             </div>
@@ -69,8 +71,14 @@ export function SignUpForm() {
               </span>
             </div>
           </div>
+          <Link
+            to={ROUTES.SignIn}
+            className="text-primary text-center block text-md text-amber-950 underline-offset-4 underline"
+          >
+            Sign In
+          </Link>
         </div>
-        <div  className='text-rose-500 text-center'>{state.isError ? state.isError : null}</div>
+        <div className="text-rose-500 text-center">{state.isError ? state.isError : null}</div>
       </div>
     </div>
   );
