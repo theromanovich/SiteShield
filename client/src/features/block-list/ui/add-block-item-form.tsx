@@ -6,7 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { useAddBlockItemForm } from '../model/use-add-block-item-form';
 
 export function AddBlockItemForm() {
-  const { form, type, functions, state } = useAddBlockItemForm();
+  const { form, functions } = useAddBlockItemForm();
 
   return (
     <div>
