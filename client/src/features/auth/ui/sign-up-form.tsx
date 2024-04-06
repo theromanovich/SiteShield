@@ -73,7 +73,7 @@ export function SignUpForm() {
           </div>
           <Link
             to={ROUTES.SignIn}
-            className="text-primary text-center block text-md text-amber-950 underline-offset-4 underline"
+            className="text-primary text-center block text-sm text-amber-950 underline-offset-4 underline"
           >
             Sign In
           </Link>

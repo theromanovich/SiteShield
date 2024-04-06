@@ -1,5 +1,5 @@
 import { RootLayout } from '@/app/layout';
-import { SignOutButton, protectedPage } from '@/features/auth';
+import { protectedPage } from '@/features/auth';
 import ToggleBlockingButton from '@/features/toggle-blocking/ui/toggle-blocking-button';
 import { Profile } from '@/widgets/profile';
 import { createRoute } from '@tanstack/react-router';
