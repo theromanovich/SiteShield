@@ -1,6 +1,7 @@
+import { createRoute } from '@tanstack/react-router';
+
 import { RootLayout } from '@/app/layout';
 import { SignInForm } from '@/features/auth';
-import { createRoute } from '@tanstack/react-router';
 
 export function SignInPage() {
   return (

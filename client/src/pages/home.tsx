@@ -1,7 +1,8 @@
+import { createRoute } from '@tanstack/react-router';
+
 import { RootLayout } from '@/app/layout';
 import { protectedPage } from '@/features/auth';
 import { AddBlockItemForm, BlockList } from '@/features/block-list';
-import { createRoute } from '@tanstack/react-router';
 
 export function HomePage() {
   return (

@@ -1,9 +1,10 @@
+import { Link } from '@tanstack/react-router';
+
 import { useSignUpForm } from '@/features/auth/model/use-sign-up-form';
 import { ROUTES } from '@/shared/constants/routes';
 import { Button } from '@/shared/ui/button';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/shared/ui/form';
 import { Input } from '@/shared/ui/input';
-import { Link } from '@tanstack/react-router';
 
 export function SignUpForm() {
   const { form, functions, state } = useSignUpForm();

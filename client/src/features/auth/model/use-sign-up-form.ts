@@ -1,10 +1,12 @@
-import { SignUpBodyDto, authControllerSignUp } from '@/shared/api/generated';
-import { ROUTES } from '@/shared/constants/routes';
+import { useForm } from 'react-hook-form';
+
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation } from '@tanstack/react-query';
 import { useNavigate } from '@tanstack/react-router';
-import { useForm } from 'react-hook-form';
 import { z } from 'zod';
+
+import { SignUpBodyDto, authControllerSignUp } from '@/shared/api/generated';
+import { ROUTES } from '@/shared/constants/routes';
 
 export function useSignUpForm() {
   const signUpformSchema = z.object({

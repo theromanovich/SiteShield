@@ -1,7 +1,9 @@
+import { PropsWithChildren, ReactElement } from 'react';
+
+import { useNavigate } from '@tanstack/react-router';
+
 import { useSessionQuery } from '@/entities/session';
 import { ROUTES } from '@/shared/constants/routes';
-import { useNavigate } from '@tanstack/react-router';
-import { PropsWithChildren, ReactElement } from 'react';
 
 export function protectedPage<P>(Component: (props: P) => ReactElement) {
   return function ProtectedPage(props: PropsWithChildren<P>) {

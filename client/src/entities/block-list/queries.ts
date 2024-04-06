@@ -1,9 +1,10 @@
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+
 import {
-  blockListControllerGetList,
   blockListControllerAddBlockItem,
+  blockListControllerGetList,
   blockListControllerRemoveBlockItem,
 } from '@/shared/api/generated';
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
 const blockListKey = ['block-list'] as unknown[];
 

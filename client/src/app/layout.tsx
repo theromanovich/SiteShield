@@ -1,9 +1,10 @@
+import { Outlet, createRootRoute } from '@tanstack/react-router';
+import clsx from 'clsx';
+
 import { useSessionQuery } from '@/entities/session';
 import { ToggleBlockingButton } from '@/features/toggle-blocking';
 import { LogoIcon } from '@/shared/ui/logo';
 import { Profile } from '@/widgets/profile';
-import { Outlet, createRootRoute } from '@tanstack/react-router';
-import clsx from 'clsx';
 
 function Layout() {
   const { data: session } = useSessionQuery();

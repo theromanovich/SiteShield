@@ -1,6 +1,7 @@
+import React from 'react';
+
 import { useBlockListQuery } from '@/entities/block-list';
 import { useDebaunceValue } from '@/shared/lib/react-std';
-import React from 'react';
 
 export function useBlockItems() {
   const [q, setQ] = React.useState('');

@@ -1,6 +1,7 @@
+import clsx from 'clsx';
+
 import { Input } from '@/shared/ui/input';
 import { Label } from '@/shared/ui/label';
-import clsx from 'clsx';
 
 import { useBlockItems } from '../model/use-block-items';
 import { BlockItem } from './block-item';

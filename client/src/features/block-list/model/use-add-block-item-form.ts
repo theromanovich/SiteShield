@@ -1,8 +1,10 @@
+import { useForm } from 'react-hook-form';
+
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
+
 import { useAddBlockItemMutation } from '@/entities/block-list';
 import { AddBlockItemDtoType } from '@/shared/api/generated';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
-import { z } from 'zod';
 
 const addBlockItemFromSchema = z.object({
   type: z.nativeEnum(AddBlockItemDtoType),
