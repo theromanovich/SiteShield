@@ -10,7 +10,7 @@ function Layout() {
   return (
     <div className="px-4 py-2">
       <div className={clsx(' flex gap-2', session ? 'justify-between' : 'justify-center')}>
-        <div className="flex gap-6 items-center mb-4">
+        <div className="flex gap-6 items-center">
           <LogoIcon />
           {session ? <ToggleBlockingButton /> : null}
         </div>
