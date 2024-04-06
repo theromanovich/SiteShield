@@ -18,9 +18,9 @@ export function BlockItem({
   }
   return (
     <div className="flex gap-2 items-center mx-auto w-4/6 justify-between border px-4 py-2 rounded-sm">
-      <div>
-        <span>{data}</span>
-        <span>{type}</span>
+      <div className="flex gap-2 items-center">
+        <span className="text-sm text-muted-foreground">{type}</span>
+        <span className="">{data}</span>
       </div>
       <button
         className="hover:text-rose-600 block ml-auto p-2"

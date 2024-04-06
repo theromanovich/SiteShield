@@ -11,7 +11,7 @@ export function AddBlockItemForm() {
   return (
     <div className="w-full">
       <Form {...form}>
-        <form onSubmit={functions.handleSubmit}>
+        <form className="flex justify-center" onSubmit={functions.handleSubmit}>
           <div className="flex gap-2 items-center">
             <FormField
               control={form.control}
@@ -68,9 +68,7 @@ export function AddBlockItemForm() {
                 </FormItem>
               )}
             />
-            <Button className="mt-1" type="submit">
-              Add
-            </Button>
+            <Button type="submit">Add</Button>
           </div>
         </form>
       </Form>
