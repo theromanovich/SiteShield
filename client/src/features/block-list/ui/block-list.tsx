@@ -13,22 +13,21 @@ export function BlockList({ className }: { className?: string }) {
     <div
       className={clsx(
         'border rounded px-4 py-4 flex flex-col gap-4 mt-7 w-xl max-w-screen-sm w-full mx-auto',
-        !items.length && 'hidden',
         className,
       )}
     >
-      {items.length > 0 ? (
-        <div>
-          <Label>Search...</Label>
-          <Input value={q} onChange={(e) => functions.setQ(e.target.value)} />
-        </div>
-      ) : null}
+      <div className="flex flex-col gap-2">
+        <Label>Search...</Label>
+        <Input value={q} onChange={(e) => functions.setQ(e.target.value)} />
+      </div>
 
-      <div className="flex flex-col gap-4">
+      <div className={clsx('flex flex-col gap-4')}>
         {state.isLoading
           ? 'Loading...'
           : items.map((item) => <BlockItem key={item.id} {...item} />)}
       </div>
+
+      {!items.length && !state.isLoading ? <div className="text-center">List is empty</div> : null}
     </div>
   );
 }
