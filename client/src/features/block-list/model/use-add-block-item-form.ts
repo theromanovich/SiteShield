@@ -22,6 +22,8 @@ export function useAddBlockItemForm() {
     form,
     type,
     state: { isLoading: addBlockItemMutation.isPending },
-    functions: { handleSubmit: form.handleSubmit((data) => addBlockItemMutation.mutate(data)) },
+    functions: { handleSubmit: form.handleSubmit((data) => addBlockItemMutation.mutate(data, {
+      onSuccess: () => form.reset(),
+    })) },
   };
 }

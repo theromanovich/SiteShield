@@ -1,5 +1,4 @@
 import { RootLayout } from '@/app/layout';
-import { useBlockListQuery } from '@/entities/block-list/queries';
 import { protectedPage } from '@/features/auth';
 import { AddBlockItemForm } from '@/features/block-list/ui/add-block-item-form';
 import { BlockList } from '@/features/block-list/ui/block-list';
@@ -8,7 +7,6 @@ import { Profile } from '@/widgets/profile';
 import { createRoute } from '@tanstack/react-router';
 
 export function HomePage() {
-  const { data } = useBlockListQuery({});
   return (
     <div>
       <Profile />
