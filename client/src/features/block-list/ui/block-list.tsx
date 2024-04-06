@@ -9,8 +9,10 @@ export function BlockList({ className }: { className?: string }) {
 
   return (
     <div className={className}>
-      <Label>Search...</Label>
-      <Input value={q} onChange={(e) => functions.setQ(e.target.value)} />
+      <div>
+        <Label>Search...</Label>
+        <Input value={q} onChange={(e) => functions.setQ(e.target.value)} />
+      </div>
 
       <div>
         {state.isLoading

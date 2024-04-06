@@ -6,7 +6,7 @@ export function SignOutButton() {
   const { state, functions } = useSignOut();
 
   return (
-    <Button disabled={state.isLoading} onClick={() => functions.signOut()}>
+    <Button variant="outline" disabled={state.isLoading} onClick={() => functions.signOut()}>
       Sign Out
     </Button>
   );

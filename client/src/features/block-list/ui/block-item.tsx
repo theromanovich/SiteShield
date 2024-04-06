@@ -17,7 +17,7 @@ export function BlockItem({
     removeBlockItemMutation.mutate(id);
   }
   return (
-    <div className="flex gap-2 items-center">
+    <div className="flex gap-2 items-center w-72">
       <div>{data}</div>
       <div>{type}</div>
       <button

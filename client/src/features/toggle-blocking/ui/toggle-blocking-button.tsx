@@ -10,7 +10,11 @@ export default function ToggleBlockingButton() {
   }
 
   return (
-    <Button disabled={state.isloading} onClick={functions.toggleBlocking}>
+    <Button
+      disabled={state.isloading}
+      variant={state.isBlockingEnabled ? 'destructive' : 'outline'}
+      onClick={functions.toggleBlocking}
+    >
       {state.isBlockingEnabled ? 'Disable Blocking' : 'Enable Blocking'}
     </Button>
   );

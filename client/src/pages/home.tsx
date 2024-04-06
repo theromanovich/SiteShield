@@ -2,18 +2,14 @@ import { RootLayout } from '@/app/layout';
 import { protectedPage } from '@/features/auth';
 import { AddBlockItemForm } from '@/features/block-list/ui/add-block-item-form';
 import { BlockList } from '@/features/block-list/ui/block-list';
-import ToggleBlockingButton from '@/features/toggle-blocking/ui/toggle-blocking-button';
 import { createRoute } from '@tanstack/react-router';
 
 export function HomePage() {
   return (
     <div>
-      <ToggleBlockingButton />
-
       <div className="mt-10">
-        <h2>Block List</h2>
-        <AddBlockItemForm />
         <BlockList />
+        <AddBlockItemForm />
       </div>
     </div>
   );
