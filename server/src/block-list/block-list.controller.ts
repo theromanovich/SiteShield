@@ -41,7 +41,7 @@ export class BlockListController {
   @ApiCreatedResponse({
     type: BlockItemDto,
   })
-  addBlockList(
+  addBlockItem(
     @Body() body: AddBlockItemDto,
     @SessionInfo() session: GetSessionInfoDto,
   ): Promise<BlockItemDto> {
