@@ -11,6 +11,7 @@ export function useBlockListQuery({ q }: { q?: string }) {
   return useQuery({
     queryKey: blockListKey.concat([{ q }]),
     queryFn: () => blockListControllerGetList({ q }),
+    placeholderData: (previousData) => previousData
   });
 }
 
@@ -25,7 +26,7 @@ export function useAddBlockItemMutation() {
   });
 }
 
-export function useRemoveBlockItem() {
+export function useRemoveBlockItemMutation() {
   const queryClient = useQueryClient();
 
   return useMutation({
