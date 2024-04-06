@@ -23,7 +23,7 @@ export function AddBlockItemForm() {
                     <Select onValueChange={field.onChange} defaultValue={field.value}>
                       <FormControl>
                         <SelectTrigger>
-                          <SelectValue placeholder="Select a verified email to display" />
+                          <SelectValue placeholder="Select a block type" />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
