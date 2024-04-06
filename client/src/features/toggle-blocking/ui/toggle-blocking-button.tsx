@@ -2,7 +2,7 @@ import { Button } from '@/shared/ui/button';
 
 import { useToggleBlocking } from '../model/use-toggle-blocking';
 
-export default function ToggleBlockingButton() {
+export function ToggleBlockingButton() {
   const { state, functions } = useToggleBlocking();
 
   if (!state.isReady) {
