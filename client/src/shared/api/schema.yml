@@ -100,7 +100,7 @@ paths:
                 $ref: '#/components/schemas/BlockListDto'
   /block-list/item:
     post:
-      operationId: BlockListController_addBlockList
+      operationId: BlockListController_addBlockItem
       parameters: []
       requestBody:
         required: true

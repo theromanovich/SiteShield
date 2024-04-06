@@ -1,19 +1,29 @@
-import { blockListControllerGetList, blockListControllerAddBlockList as blockListControllerAddBlockListItem} from "@/shared/api/generated";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import {
+  blockListControllerGetList,
+  blockListControllerAddBlockItem,
+  blockListControllerRemoveBlockItem,
+} from '@/shared/api/generated';
+import { useMutation, useQuery } from '@tanstack/react-query';
 
 const blockListKey = ['block-list'] as unknown[];
 
-export function useBlockListQuery({ q }: {q?: string} ) {
+export function useBlockListQuery({ q }: { q?: string }) {
   return useQuery({
-    queryKey: blockListKey.concat([{q}]),
-    queryFn: () => blockListControllerGetList({
-
-    })
-  })
+    queryKey: blockListKey.concat([{ q }]),
+    queryFn: () => blockListControllerGetList({}),
+  });
 }
 
 export function useAddBlockItemMutation() {
-    return useMutation({
-        mutationFn: blockListControllerAddBlockListItem
-    })
+  return useMutation({
+    mutationFn: blockListControllerAddBlockItem,
+    onSettled: () => {},
+  });
+}
+
+export function useRemoveBlockItem() {
+  return useMutation({
+    mutationFn: blockListControllerRemoveBlockItem,
+    onSettled: () => {},
+  });
 }

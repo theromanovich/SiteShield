@@ -15,7 +15,7 @@ export function useAccountMutation() {
   return useMutation({
     mutationFn: accountControllerPatchAccount,
     onSuccess: (data) => {
-        queryClient.setQueryData(accountKey, data);
+      queryClient.setQueryData(accountKey, data);
     },
     onSettled: async () => {
       await queryClient.invalidateQueries({ queryKey: accountKey });

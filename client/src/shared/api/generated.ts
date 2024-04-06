@@ -153,7 +153,7 @@ export const blockListControllerGetList = (
   return createInstance<BlockListDto>({ url: `/block-list`, method: 'GET', params }, options);
 };
 
-export const blockListControllerAddBlockList = (
+export const blockListControllerAddBlockItem = (
   addBlockItemDto: BodyType<AddBlockItemDto>,
   options?: SecondParameter<typeof createInstance>,
 ) => {
@@ -199,8 +199,8 @@ export type AccountControllerPatchAccountResult = NonNullable<
 export type BlockListControllerGetListResult = NonNullable<
   Awaited<ReturnType<typeof blockListControllerGetList>>
 >;
-export type BlockListControllerAddBlockListResult = NonNullable<
-  Awaited<ReturnType<typeof blockListControllerAddBlockList>>
+export type BlockListControllerAddBlockItemResult = NonNullable<
+  Awaited<ReturnType<typeof blockListControllerAddBlockItem>>
 >;
 export type BlockListControllerRemoveBlockItemResult = NonNullable<
   Awaited<ReturnType<typeof blockListControllerRemoveBlockItem>>
