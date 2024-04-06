@@ -1,1 +1,1 @@
-export { ToggleBlockingButton } from './ui/toggle-blocking-button'
+export { ToggleBlockingButton } from './ui/toggle-blocking-button';

@@ -7,7 +7,7 @@ import clsx from 'clsx';
 
 function Layout() {
   const { data: session } = useSessionQuery();
-  
+
   return (
     <div className="px-4 py-2">
       <div className={clsx('flex gap-2', session ? 'justify-between' : 'justify-center')}>
