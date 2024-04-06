@@ -1,33 +1,37 @@
-import { blockListControllerGetList, blockListControllerAddBlockItem, blockListControllerRemoveBlockItem } from "@/shared/api/generated";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import {
+  blockListControllerGetList,
+  blockListControllerAddBlockItem,
+  blockListControllerRemoveBlockItem,
+} from '@/shared/api/generated';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
 const blockListKey = ['block-list'] as unknown[];
 
-export function useBlockListQuery({ q }: {q?: string} ) {
+export function useBlockListQuery({ q }: { q?: string }) {
   return useQuery({
-    queryKey: blockListKey.concat([{q}]),
-    queryFn: () => blockListControllerGetList({ q })
-  })
+    queryKey: blockListKey.concat([{ q }]),
+    queryFn: () => blockListControllerGetList({ q }),
+  });
 }
 
 export function useAddBlockItemMutation() {
-    const queryClient = useQueryClient()
+  const queryClient = useQueryClient();
 
-    return useMutation({
-        mutationFn: blockListControllerAddBlockItem,
-        onSettled: async () => {
-            await queryClient.invalidateQueries({queryKey: blockListKey})
-        }
-    })
+  return useMutation({
+    mutationFn: blockListControllerAddBlockItem,
+    onSettled: async () => {
+      await queryClient.invalidateQueries({ queryKey: blockListKey });
+    },
+  });
 }
 
 export function useRemoveBlockItem() {
-    const queryClient = useQueryClient()
+  const queryClient = useQueryClient();
 
-    return useMutation({
-        mutationFn: blockListControllerRemoveBlockItem,
-        onSettled: async () => {
-            await queryClient.invalidateQueries({queryKey: blockListKey})
-        }
-    })
+  return useMutation({
+    mutationFn: blockListControllerRemoveBlockItem,
+    onSettled: async () => {
+      await queryClient.invalidateQueries({ queryKey: blockListKey });
+    },
+  });
 }
