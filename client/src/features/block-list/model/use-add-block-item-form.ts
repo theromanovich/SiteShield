@@ -6,12 +6,16 @@ import { z } from 'zod';
 
 const addBlockItemFromSchema = z.object({
   type: z.nativeEnum(AddBlockItemDtoType),
-  data: z.string().min(1),
+  data: z.string().trim().min(1, { message: 'Required' }),
 });
 
 export function useAddBlockItemForm() {
   const form = useForm<z.infer<typeof addBlockItemFromSchema>>({
     resolver: zodResolver(addBlockItemFromSchema),
+    defaultValues: {
+      type: 'Website',
+      data: '',
+    },
   });
 
   const addBlockItemMutation = useAddBlockItemMutation();

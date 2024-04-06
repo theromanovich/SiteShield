@@ -1,5 +1,5 @@
 import { Button } from '@/shared/ui/button';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/shared/ui/form';
+import { Form, FormControl, FormField, FormItem, FormMessage } from '@/shared/ui/form';
 import { Input } from '@/shared/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/shared/ui/select';
 
@@ -19,10 +19,19 @@ export function AddBlockItemForm() {
               render={({ field }) => (
                 <FormItem className="grid gap-1 w-[250px] max-w-full">
                   <FormControl>
-                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                    <Select
+                      onValueChange={(value) => {
+                        field.onChange(value);
+                      }}
+                      value={field.value}
+                    >
                       <FormControl>
                         <SelectTrigger>
-                          <SelectValue placeholder="Select a block type" />
+                          {field.value ? (
+                            <SelectValue placeholder="Select a block type" />
+                          ) : (
+                            'Select a block type'
+                          )}
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
@@ -42,7 +51,10 @@ export function AddBlockItemForm() {
                 <FormItem className="grid gap-1 w-[250px] max-w-full">
                   <FormControl>
                     <Input
+                      {...field}
                       id="data"
+                      value={field.value}
+                      onChange={field.onChange}
                       placeholder={
                         type
                           ? type === 'Website'
@@ -50,7 +62,6 @@ export function AddBlockItemForm() {
                             : 'please enter a keyword'
                           : ''
                       }
-                      {...field}
                     />
                   </FormControl>
                   <FormMessage />

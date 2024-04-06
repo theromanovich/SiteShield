@@ -8,8 +8,8 @@ export function HomePage() {
   return (
     <div>
       <div className="mt-10">
-        <BlockList />
         <AddBlockItemForm />
+        <BlockList />
       </div>
     </div>
   );

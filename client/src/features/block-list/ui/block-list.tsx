@@ -14,7 +14,7 @@ export function BlockList({ className }: { className?: string }) {
         <Input value={q} onChange={(e) => functions.setQ(e.target.value)} />
       </div>
 
-      <div>
+      <div className="flex flex-col gap-4">
         {state.isLoading
           ? 'Loading...'
           : items.map((item) => <BlockItem key={item.id} {...item} />)}
