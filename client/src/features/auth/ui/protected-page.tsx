@@ -13,8 +13,6 @@ export function protectedPage<P>(Component: (props: P) => ReactElement) {
       return <div>Loading...</div>;
     }
 
-    console.log(isError);
-
     if (isError) {
       navigate({ to: ROUTES.SignUp });
     }
