@@ -6,9 +6,7 @@ const blockListKey = ['block-list'] as unknown[];
 export function useBlockListQuery({ q }: {q?: string} ) {
   return useQuery({
     queryKey: blockListKey.concat([{q}]),
-    queryFn: () => blockListControllerGetList({
-
-    })
+    queryFn: () => blockListControllerGetList({ q })
   })
 }
 
@@ -25,7 +23,7 @@ export function useAddBlockItemMutation() {
 
 export function useRemoveBlockItem() {
     const queryClient = useQueryClient()
-    
+
     return useMutation({
         mutationFn: blockListControllerRemoveBlockItem,
         onSettled: async () => {
