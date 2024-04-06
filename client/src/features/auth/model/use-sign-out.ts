@@ -1,3 +1,4 @@
+import { useResetSession } from '@/entities/session/queries';
 import { authControllerSignOut } from '@/shared/api/generated';
 import { ROUTES } from '@/shared/constants/routes';
 import { useMutation } from '@tanstack/react-query';
@@ -10,6 +11,7 @@ export function useSignOut() {
     mutationFn: () => authControllerSignOut(),
     onSuccess: () => {
       navigate({ to: ROUTES.SignUp });
+      useResetSession();
     },
   });
 
