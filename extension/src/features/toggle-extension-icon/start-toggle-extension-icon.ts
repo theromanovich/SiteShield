@@ -10,18 +10,18 @@ export function startToggleExtensionIcon() {
     );
 
     if (!isAuth) {
-      setIcon('/hey.png');
+      setIcon('/extension-default.png');
       return;
     }
 
     const isBlockingEnabled = await accountControllerGetAccount().then((r) => r.isBlockingEnabled);
 
     if (!isBlockingEnabled) {
-      setIcon('/sleaping.png');
+      setIcon('/extension-default.png');
       return;
     }
 
-    setIcon('/shield.png');
+    setIcon('/extension-enabled.png');
     return;
   });
 }
