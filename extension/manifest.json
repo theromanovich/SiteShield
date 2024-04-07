@@ -5,6 +5,12 @@
   "action": { "default_popup": "index.html" },
   "permissions": ["declarativeNetRequest", "alarms"],
   "host_permissions": ["<all_urls>"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content-script/main.js"]
+    }
+  ],
   "background": {
     "service_worker": "src/app/background.ts",
     "type": "module"
