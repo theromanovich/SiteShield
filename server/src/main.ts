@@ -15,6 +15,16 @@ async function bootstrap() {
 
   app.use(cookieParser());
 
+  app.enableCors({
+    origin: [
+      process.env.NODE_ENV === 'production'
+        ? process.env.CLIENT_URL!
+        : 'http://localhost:3000',
+      `chrome-extension://${process.env.EXTENSION_ID}`,
+    ],
+    credentials: true,
+  });
+
   app.useGlobalPipes(new ValidationPipe());
 
   await app.listen(process.env.PORT || 3000, '0.0.0.0');
