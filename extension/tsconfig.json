@@ -22,11 +22,9 @@
 
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "@/*": ["./src/*"]
     }
   },
-  "include": ["src"],
+  "include": ["src", "orval.config.cjs"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
