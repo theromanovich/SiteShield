@@ -13,9 +13,6 @@ const routeTree = RootLayout.addChildren([HomePageRoute, SignUpPageRoute, SignIn
 
 const router = createRouter({
   routeTree,
-  context: {
-    auth: undefined,
-  },
 });
 
 declare module '@tanstack/react-router' {
