@@ -1,3 +1,5 @@
+import '@/styles/globals.css';
+
 import { AppProvider } from './app-provider';
 import { AppRouter } from './app-router';
 

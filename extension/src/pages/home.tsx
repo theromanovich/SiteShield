@@ -6,7 +6,7 @@ import { LogoIcon } from '@/shared/ui/logo';
 
 export function HomePage() {
   return (
-    <div className="p-8 flex flex-col gap-3 ">
+    <div className="p-4 w-92 flex flex-col gap-3 items-center w-48">
       <LogoIcon />
       <ToggleBlockingButton />
       <Button onClick={() => createTab(ADMIN_URL)}>Manage extension</Button>
