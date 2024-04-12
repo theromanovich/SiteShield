@@ -17,9 +17,8 @@ async function bootstrap() {
 
   app.enableCors({
     origin: [
-      process.env.NODE_ENV === 'production'
-        ? process.env.CLIENT_URL!
-        : 'http://localhost:5173',
+      process.env.CLIENT_URL!,
+      'http://localhost:5173',
       `chrome-extension://${process.env.EXTENSION_ID}`,
     ],
     credentials: true,
