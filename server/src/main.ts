@@ -19,7 +19,7 @@ async function bootstrap() {
     origin: [
       process.env.NODE_ENV === 'production'
         ? process.env.CLIENT_URL!
-        : 'http://localhost:3000',
+        : 'http://localhost:5173',
       `chrome-extension://${process.env.EXTENSION_ID}`,
     ],
     credentials: true,
