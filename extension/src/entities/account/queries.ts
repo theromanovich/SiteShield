@@ -3,6 +3,7 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { accountControllerGetAccount, accountControllerPatchAccount } from '@/shared/api/generated';
 
 const accountKey = ['account'];
+
 export function useAccountQuery() {
   return useQuery({
     queryKey: accountKey,
