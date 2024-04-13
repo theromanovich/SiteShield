@@ -10,7 +10,7 @@ export class AccountService {
     return this.db.account.create({
       data: {
         ownerId: userId,
-        isBlockingEnabled: false,
+        isBlockingEnabled: true,
       },
     });
   }

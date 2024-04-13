@@ -8,7 +8,7 @@ export function useToggleBlocking() {
   function toggleBlocking() {
     if (accountQuery.data) {
       updateAccountMutation.mutate({
-        isBlockingEnabled: !accountQuery.data?.isBlockingEnabled ?? false,
+        isBlockingEnabled: !accountQuery.data?.isBlockingEnabled ?? true,
       });
     }
   }
@@ -16,7 +16,7 @@ export function useToggleBlocking() {
   return {
     state: {
       isloading: updateAccountMutation.isPending,
-      isBlockingEnabled: accountQuery.data?.isBlockingEnabled ?? false,
+      isBlockingEnabled: accountQuery.data?.isBlockingEnabled ?? true,
       isReady: accountQuery.isSuccess,
     },
     functions: { toggleBlocking },

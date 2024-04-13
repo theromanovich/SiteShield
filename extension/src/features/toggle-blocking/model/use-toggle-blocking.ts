@@ -16,7 +16,7 @@ export function useToggleBlocking() {
   return {
     functions: { toggleBlocking },
     state: {
-      isBlockingEnabled: accountQuery.data?.isBlockingEnabled ?? false,
+      isBlockingEnabled: accountQuery.data?.isBlockingEnabled ?? true,
       isLoading: updateAccountMutation.isPending,
       isReady: accountQuery.isSuccess,
     },
