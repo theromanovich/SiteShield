@@ -47,10 +47,12 @@ export interface BlockListDto {
 }
 
 export interface PatchAccountDto {
+  allowFromBlockListOnly?: boolean;
   isBlockingEnabled?: boolean;
 }
 
 export interface AccoutDto {
+  allowFromBlockListOnly: boolean;
   id: number;
   isBlockingEnabled: boolean;
   ownerId: number;

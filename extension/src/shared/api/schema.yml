@@ -196,14 +196,19 @@ components:
           type: number
         isBlockingEnabled:
           type: boolean
+        allowFromBlockListOnly:
+          type: boolean
       required:
         - id
         - ownerId
         - isBlockingEnabled
+        - allowFromBlockListOnly
     PatchAccountDto:
       type: object
       properties:
         isBlockingEnabled:
+          type: boolean
+        allowFromBlockListOnly:
           type: boolean
     BlockItemDto:
       type: object
