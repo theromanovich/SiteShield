@@ -11,6 +11,10 @@ export class AccoutDto {
   @ApiProperty()
   @IsBoolean()
   isBlockingEnabled: boolean;
+
+  @ApiProperty()
+  @IsBoolean()
+  allowFromBlockListOnly: boolean;
 }
 
 export class PatchAccountDto {
@@ -18,4 +22,9 @@ export class PatchAccountDto {
   @IsBoolean()
   @IsOptional()
   isBlockingEnabled: boolean;
+
+  @ApiProperty({ required: false })
+  @IsBoolean()
+  @IsOptional()
+  allowFromBlockListOnly: boolean;
 }

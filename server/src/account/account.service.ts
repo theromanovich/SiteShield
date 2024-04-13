@@ -11,6 +11,7 @@ export class AccountService {
       data: {
         ownerId: userId,
         isBlockingEnabled: true,
+        allowFromBlockListOnly: false,
       },
     });
   }
