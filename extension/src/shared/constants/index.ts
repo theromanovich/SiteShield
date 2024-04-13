@@ -1,2 +1,2 @@
-export const ADMIN_URL = 'http://localhost:5173';
-export const ADMIN_SIGN_IN_URL = 'http://localhost:5173/sign-in';
+export const ADMIN_URL = import.meta.env.VITE_ADMIN_URL;
+export const ADMIN_SIGN_IN_URL = import.meta.env.VITE_ADMIN_URL_SIGN_IN;
