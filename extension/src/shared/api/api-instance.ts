@@ -1,6 +1,6 @@
 // custom-instance.ts
 
-const baseURL = import.meta.env.PROD ? import.meta.env.VITE_API_URL : 'http://localhost:3000'; // use your own URL here or environment variable
+const baseURL = import.meta.env.VITE_API_URL || 'http://localhost:3000'; // use your own URL here or environment variable
 
 class ApiError extends Error {
   constructor(public data: unknown) {
