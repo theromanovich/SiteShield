@@ -3,6 +3,7 @@ import {
   accountControllerGetAccount,
   blockListControllerGetList,
 } from '@/shared/api/generated';
+import { ADMIN_URL } from '@/shared/constants';
 import { NetRule, NetRuleActionType, NetRuleResourceType } from '@/shared/lib/browser';
 
 export async function getBlockListNetRules() {
@@ -11,16 +12,6 @@ export async function getBlockListNetRules() {
   const allowFromBlockListOnly = await accountControllerGetAccount().then(
     (r) => r.allowFromBlockListOnly,
   );
-
-  const defaultBlockRule = {
-    id: 0,
-    action: {
-      type: NetRuleActionType.BLOCK,
-    },
-    condition: {
-      resourceTypes: [NetRuleResourceType.MAIN_FRAME],
-    },
-  };
 
   const domainRules = blockList.items
     .filter((item) => item.type === BlockItemDtoType.Website)
@@ -42,11 +33,33 @@ export async function getBlockListNetRules() {
       }),
     );
 
-  if (allowFromBlockListOnly) {
-    domainRules.push(defaultBlockRule as NetRule);
-  }
+  const defaultBlockRule = {
+    id: domainRules.length + 1,
+    action: {
+      type: NetRuleActionType.BLOCK,
+    },
+    condition: {
+      urlFilter: '*',
+      resourceTypes: [NetRuleResourceType.MAIN_FRAME],
+    },
+  };
 
-  console.log(domainRules);
+  const allowAdminPanelRule = {
+    id: domainRules.length + 2,
+    action: {
+      type: NetRuleActionType.ALLOW,
+    },
+    condition: {
+      urlFilter: ADMIN_URL,
+      resourceTypes: [NetRuleResourceType.MAIN_FRAME],
+    },
+  };
+
+  const allRules = [allowAdminPanelRule, ...domainRules];
+
+  if (allowFromBlockListOnly) {
+    allRules.push(defaultBlockRule as NetRule);
+  }
 
   const keywords = blockList.items
     .filter((item) => item.type === BlockItemDtoType.KeyWord)
@@ -60,5 +73,5 @@ export async function getBlockListNetRules() {
     });
   });
 
-  return domainRules;
+  return allRules;
 }
