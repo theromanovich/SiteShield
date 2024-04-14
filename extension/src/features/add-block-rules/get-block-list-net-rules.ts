@@ -13,11 +13,11 @@ export async function getBlockListNetRules() {
   );
 
   const defaultBlockRule = {
+    id: 0,
     action: {
       type: NetRuleActionType.BLOCK,
     },
     condition: {
-      urlFilter: '*',
       resourceTypes: [NetRuleResourceType.MAIN_FRAME],
     },
   };
