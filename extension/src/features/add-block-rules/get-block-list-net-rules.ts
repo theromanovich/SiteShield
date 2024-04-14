@@ -17,7 +17,7 @@ export async function getBlockListNetRules() {
       type: NetRuleActionType.BLOCK,
     },
     condition: {
-      urlFilter: '*://*/*',
+      urlFilter: '*',
       resourceTypes: [NetRuleResourceType.MAIN_FRAME],
     },
   };
@@ -45,6 +45,8 @@ export async function getBlockListNetRules() {
   if (allowFromBlockListOnly) {
     domainRules.push(defaultBlockRule as NetRule);
   }
+
+  console.log(domainRules);
 
   const keywords = blockList.items
     .filter((item) => item.type === BlockItemDtoType.KeyWord)
