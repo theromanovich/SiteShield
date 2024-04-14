@@ -1,15 +1,25 @@
-import { BlockItemDtoType, blockListControllerGetList } from '@/shared/api/generated';
+import {
+  BlockItemDtoType,
+  accountControllerGetAccount,
+  blockListControllerGetList,
+} from '@/shared/api/generated';
 import { NetRule, NetRuleActionType, NetRuleResourceType } from '@/shared/lib/browser';
 
 export async function getBlockListNetRules() {
   const blockList = await blockListControllerGetList();
+
+  const allowFromBlockListOnly = await accountControllerGetAccount().then(
+    (r) => r.allowFromBlockListOnly,
+  );
 
   const domainRules = blockList.items
     .filter((item) => item.type === BlockItemDtoType.Website)
     .map(
       (item): NetRule => ({
         id: item.id,
-        action: { type: NetRuleActionType.BLOCK },
+        action: {
+          type: allowFromBlockListOnly ? NetRuleActionType.ALLOW : NetRuleActionType.BLOCK,
+        },
         condition: item.data.startsWith('regexp:')
           ? {
               regexFilter: item.data.replace('regexp:', ''),
