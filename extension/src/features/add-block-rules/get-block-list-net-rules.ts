@@ -12,6 +12,16 @@ export async function getBlockListNetRules() {
     (r) => r.allowFromBlockListOnly,
   );
 
+  const defaultBlockRule = {
+    action: {
+      type: NetRuleActionType.BLOCK,
+    },
+    condition: {
+      urlFilter: '*://*/*',
+      resourceTypes: [NetRuleResourceType.MAIN_FRAME],
+    },
+  };
+
   const domainRules = blockList.items
     .filter((item) => item.type === BlockItemDtoType.Website)
     .map(
@@ -31,6 +41,10 @@ export async function getBlockListNetRules() {
             },
       }),
     );
+
+  if (allowFromBlockListOnly) {
+    domainRules.push(defaultBlockRule as NetRule);
+  }
 
   const keywords = blockList.items
     .filter((item) => item.type === BlockItemDtoType.KeyWord)
