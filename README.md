@@ -14,13 +14,13 @@ leverages Orval by downloading API schemas from the server.
  - NestJS
  - Prisma
  - PostgreSQL
- ⚡️ Client
-- React
+⚡️ Client
+ - React
  - Tanstack Query
  - Tanstack Router
  - Orval
-- ShadcnUi
-- FSD
+ - ShadcnUi
+ - FSD
 
 ⚡️ Extension
 
