@@ -14,6 +14,7 @@ leverages Orval by downloading API schemas from the server.
  - NestJS
  - Prisma
  - PostgreSQL
+
 ⚡️ Client
  - React
  - Tanstack Query
