@@ -25,5 +25,5 @@ leverages Orval by downloading API schemas from the server.
 
 ⚡️ Extension
 
-- React: A JavaScript library for building user interfaces.⚡
-- CRXJS: A state management library for browser extensions.
+- React
+- CRXJS
